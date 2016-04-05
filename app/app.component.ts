@@ -1,5 +1,6 @@
 import {Component} from 'angular2/core';
-import { UserService } from './userService'
+import { UserService } from './userService';
+import { EllipsisFilter } from './ellipsisPipe';
 
 @Component({
     selector: 'my-app',
@@ -20,15 +21,20 @@ import { UserService } from './userService'
             <p class="error" [hidden]="inputSearch.valid">This input is required</p>
             
             <button type="submit" [disabled]="!searchForm.valid">SEND</button>
+            <p>{{ model.search  | ellipsis:5}}</p>
+            <p>{{ inputSearch.value }}</p>
         </form>
     `,
     directive: [],
-    providers: [UserService]
+    providers: [UserService],
+    pipes: [EllipsisFilter]
 })
 export class AppComponent {
     public model = {
         search: ""
     }
+
+    public name: String;
 
     constructor(private userService:UserService){
         var user = userService.getUser();
