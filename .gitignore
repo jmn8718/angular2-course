@@ -1,0 +1,14 @@
+//IDE folder
+.idea
+
+//Dependencies folders
+node_modules
+bower_components
+typings
+
+//Compiled files
+app/**/*.js
+app/**/*.js.map
+
+//example code
+rx_example
