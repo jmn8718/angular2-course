@@ -8,6 +8,8 @@ export class EllipsisFilter implements PipeTransform{
     transform(value:string, args:any[]):any {
         if (value && value.length >= args[0]){
             return value = value.substring(0, args[0]) + '...';
+        } else {
+            return value;
         }
     }
 }
