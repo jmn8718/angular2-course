@@ -1,7 +1,10 @@
 import {Component} from 'angular2/core';
 import { UserService } from './userService';
+import {HTTP_PROVIDERS, Http} from 'angular2/http';
 import { EllipsisFilter } from './ellipsisPipe';
 import { HighlightDirective } from './highlightDirective';
+// import { ForRangeDirective } from './forRangeDirective';
+
 @Component({
     selector: 'my-app',
     styles:[`
@@ -23,9 +26,16 @@ import { HighlightDirective } from './highlightDirective';
             <button type="submit" [disabled]="!searchForm.valid">SEND</button>
             <p highlight [hoverColor]="'red'">{{ inputSearch.value }}</p>
         </form>
+        <hr>
+        <!--<ul>-->
+            <!--<li *forRange="range; #i=index">{{ i }}</li>-->
+        <!--</ul>-->
+        <hr>
+        <p *ngIf="data">{{ data | json }}</p>
+        <button (click)="getData()">GET</button>
     `,
-    directives: [HighlightDirective],
-    providers: [UserService],
+    directives: [HighlightDirective, /*ForRangeDirective*/],
+    providers: [UserService, HTTP_PROVIDERS],
     pipes: [EllipsisFilter]
 })
 export class AppComponent {
@@ -33,13 +43,23 @@ export class AppComponent {
         search: ""
     }
 
-    public name: String;
+    public range = 10;
+    public name: string;
+    public data: any;
 
-    constructor(private userService:UserService){
+    constructor(private userService:UserService, private http:Http){
         var user = userService.getUser();
 
         this.name = user.firstName;
 
+    }
+
+    getData(){
+        this.http.get('http://pokeapi.co/api/v2/pokemon/1/')
+            .subscribe( res =>{
+                res = res.json();
+                this.data = res;
+            })
     }
 
 }
