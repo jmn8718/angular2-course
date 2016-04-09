@@ -7,8 +7,8 @@ bower_components
 typings
 
 //Compiled files
-app/**/*.js
-app/**/*.js.map
+js/**/*.js
+js/**/*.js.map
 
 //example code
 rx_example

@@ -1,9 +1,10 @@
 <html>
 <head>
     <base href="/">
-    <title>Angular 2 QuickStart</title>
+    <title>My Tunes</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- 1. Load libraries -->
     <!-- IE required polyfills, in this exact order -->
     <script src="node_modules/es6-shim/es6-shim.min.js"></script>
@@ -17,22 +18,18 @@
     <script src="node_modules/angular2/bundles/http.dev.js"></script>
     <script src="node_modules/angular2/bundles/router.dev.js"></script>
 
-    <style>
-        body{
-            margin: 0;
-        }
-    </style>
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
     <!-- 2. Configure SystemJS -->
     <script>
         System.config({
             packages: {
-                app: {
+                js: {
                     format: 'register',
                     defaultExtension: 'js'
                 }
             }
         });
-        System.import('app/main')
+        System.import('js/main')
                 .then(null, console.error.bind(console));
     </script>
 </head>
