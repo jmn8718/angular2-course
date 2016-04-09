@@ -1,7 +1,7 @@
 import {Component} from 'angular2/core';
 
 import { Weather } from 'classes/weather';
-import {WeatherService} from "services/WeatherService";
+import {WeatherService} from "./services/WeatherService";
 
 @Component({
     selector: 'my-app',
