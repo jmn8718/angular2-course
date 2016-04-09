@@ -1,9 +1,9 @@
 import {Component} from 'angular2/core';
 import {ROUTER_PROVIDERS, ROUTER_DIRECTIVES, RouteConfig} from 'angular2/router';
 
-import {UserComponent } from './user.component';
-import {LoginComponent } from './login.component';
-import {WelcomeComponent } from './welcome.component';
+import {UserComponent } from './user.component.ts';
+import {LoginComponent } from './login.component.ts';
+import {WelcomeComponent } from './welcome.component.ts';
 
 
 @Component({

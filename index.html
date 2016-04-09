@@ -17,6 +17,11 @@
     <script src="node_modules/angular2/bundles/http.dev.js"></script>
     <script src="node_modules/angular2/bundles/router.dev.js"></script>
 
+    <style>
+        body{
+            margin: 0;
+        }
+    </style>
     <!-- 2. Configure SystemJS -->
     <script>
         System.config({
@@ -27,7 +32,7 @@
                 }
             }
         });
-        System.import('app/main')
+        System.import('app/weatherApp/main')
                 .then(null, console.error.bind(console));
     </script>
 </head>
